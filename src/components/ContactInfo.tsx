@@ -11,7 +11,7 @@ const AddressCard = () => {
                 <FaEnvelope className="text-blue-600 text-xl mr-4" />
                 <div>
                     <p className="text-sm text-gray-500">Email</p>
-                    <p className="text-gray-700">email@example.com</p>
+                    <a href="mailto:contact@anichur.com" className="text-gray-700">contact@anichur.com</a>
                 </div>
             </motion.div>
             <motion.div 
@@ -21,7 +21,7 @@ const AddressCard = () => {
                 <FaPhone className="text-blue-600 text-xl mr-4" />
                 <div>
                     <p className="text-sm text-gray-500">Phone</p>
-                    <p className="text-gray-700">+1 (234) 567-8900</p>
+                    <a href="https://wa.me/8801816366535" className="text-gray-700">+88 01816 366535</a>
                 </div>
             </motion.div>
             <motion.div 
@@ -31,7 +31,7 @@ const AddressCard = () => {
                 <FaLocationArrow className="text-blue-600 text-xl mr-4" />
                 <div>
                     <p className="text-sm text-gray-500">Address</p>
-                    <p className="text-gray-700">123 Street Name, City, Country</p>
+                    <p className="text-gray-700">Dhaka, Bangladesh</p>
                 </div>
             </motion.div>
         </div>

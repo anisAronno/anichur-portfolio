@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPaperPlane } from 'react-icons/fa';
+import { FormData } from '../types';
 
-interface FormData {
-    name: string;
-    email: string;
-    message: string;
-}
 
 const ContactForm = () => {
     const [formData, setFormData] = useState<FormData>({
