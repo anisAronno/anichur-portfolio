@@ -20,5 +20,14 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"],
+  "target": "ES2020",
+  "useDefineForClassFields": true,
+  "lib": ["ES2020", "DOM", "DOM.Iterable"],
+  "module": "ESNext",
+  "skipLibCheck": true,
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"]
+  }
 }
