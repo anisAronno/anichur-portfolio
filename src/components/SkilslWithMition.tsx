@@ -8,7 +8,7 @@ const SkillWithMotion: React.FC = () => {
   return (
     <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
       <h2 className="text-2xl font-bold mb-6">Technical Skills</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {getAllSkills().map((skill, index) => (
           <motion.div
             key={skill.name}
