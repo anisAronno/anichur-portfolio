@@ -12,7 +12,7 @@ const Profile: React.FC = () => {
                     className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-blue-500"
                 />
                 <h1 className="text-2xl font-bold text-gray-800">Anichur Rahaman</h1>
-                <p className="text-blue-600 font-medium">Sr. Software Engineer</p>
+                <p className="text-blue-600 font-medium">Software Engineer</p>
             </div>
 
             <div className="space-y-4 mb-6">
