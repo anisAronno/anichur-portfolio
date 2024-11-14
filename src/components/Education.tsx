@@ -7,13 +7,13 @@ const education: EducationType[] = [
         degree: 'Masters in Zoology (Fisheries)',
         school: 'National University, Dhaka',
         year: '2013 - 2014',
-        details: 'Specialized in Fisheries',
+        details: 'Major in Fisheries',
     },
     {
-        degree: 'Bachelor in Zoology (Fisheries)',
-        school: 'Gov\'t Titumir College',
+        degree: 'B.Sc Honers in Zoology',
+        school: 'National University, Dhaka',
         year: '2008 - 2012',
-        details: 'Major in Fisheries',
+        details: 'Major in Zoology',
     }
     
 ];

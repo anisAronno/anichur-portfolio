@@ -31,7 +31,8 @@ export interface FormData {
 }
 
 export interface SkillCategory {
-  development: Skill[];
+  languages: Skill[];
+  frameworks: Skill[];
   database: Skill[];
   cloud: Skill[];
   tools: Skill[];

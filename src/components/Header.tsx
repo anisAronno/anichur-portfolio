@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import logo from '@/assets/images/logo.png';
 const Header: React.FC = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
             <nav className="min-w-full mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     <Link to="/" className="text-xl font-bold">
-                        Logo
+                        <img src={logo} alt="Logo" className="h-8 md:h-10 w-auto" />
                     </Link>
                     
                     {/* Hamburger Menu Button */}

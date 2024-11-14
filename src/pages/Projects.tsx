@@ -82,8 +82,8 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="px-8 pb-6 flex flex-col md:flex-row gap-2 md:place-items-center">
-                <h4 className="text-sm font-semibold text-gray-700 mb-2 md:mb-0">
+              <div className="px-8 pb-6 flex flex-col md:flex-row gap-2 md:items-center">
+                <h4 className="text-sm font-semibold text-gray-700 whitespace-nowrap">
                   Tech Stack:
                 </h4>
                 <div className="flex flex-wrap gap-2">
