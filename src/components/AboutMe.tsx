@@ -2,7 +2,6 @@ import React from 'react';
 
 const AboutMe: React.FC = () => {
   return (
-    <div className="container w-full mx-auto px-4">
       <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
         <h2 className="text-2xl font-bold mb-4">Professional Summary</h2>
         <p className="text-gray-600 leading-relaxed">
@@ -17,7 +16,6 @@ const AboutMe: React.FC = () => {
           experiences.
         </p>
       </section>
-    </div>
   );
 };
 

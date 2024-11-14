@@ -21,7 +21,7 @@ const About = () => {
 
           {/* Bio Section */}
           <div className="md:col-span-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 space-y-8">
+            <div className="bg-white rounded-xl shadow-lg p-4 md:p-8 space-y-4 md:space-y-8">
               <AboutMe />
               <Experience />
               <Skills />
