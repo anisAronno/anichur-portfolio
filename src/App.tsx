@@ -1,24 +1,15 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.tsx';
-import About from './pages/About.tsx';
-import Projects from './pages/Projects.tsx';
-import Contact from './pages/Contact.tsx';
-import Layout from './components/Layout.tsx'; 
+import { RouterProvider } from 'react-router-dom';
+import './App.css';
+import { AuthProvider } from './providers/AuthProvider';
+import router from './router';
+import { auth } from './utils/firebase';
 
 function App() {
-    return (
-        <Router>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
-            </Layout>
-        </Router>
-    );
+  return (
+    <AuthProvider auth={auth}>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
 
 export default App;

@@ -1,3 +1,4 @@
+
 export interface Skill {
   id: number;
   name: string;
@@ -43,16 +44,4 @@ export interface ProjectDetails {
   githubLink: string;
   liveLink: string;
   isPrivate: boolean;
-}
-
-export interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export interface ContactState {
-  formData: FormData;
-  isLoading: boolean;
-  error: string | null;
 }
