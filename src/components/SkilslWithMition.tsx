@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { useSkills } from '../hooks/skill';
+import { useSkills } from '../hooks/useSkills';
 
 const SkillWithMotion: React.FC = () => {
   const { getAllSkills } = useSkills();

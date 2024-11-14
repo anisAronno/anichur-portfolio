@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSkills } from '../hooks/skill';
+import { useSkills } from '../hooks/useSkills';
 
 const SkillChip: React.FC<{ name: string }> = ({ name }) => (
   <span className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors flex items-center justify-between gap-2">

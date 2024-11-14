@@ -24,12 +24,6 @@ export interface EducationType {
   details: string;
 }
 
-export interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export interface SkillCategory {
   languages: Skill[];
   frameworks: Skill[];
@@ -49,4 +43,16 @@ export interface ProjectDetails {
   githubLink: string;
   liveLink: string;
   isPrivate: boolean;
+}
+
+export interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactState {
+  formData: FormData;
+  isLoading: boolean;
+  error: string | null;
 }
