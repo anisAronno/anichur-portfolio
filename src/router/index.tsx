@@ -6,10 +6,9 @@ import Error from '../pages/Error';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Projects from '../pages/Projects';
-import Signup from '../pages/Signup';
+import DashboardRoute from './DashboardRoute';
 import FrontendRoute from './FrontendRoute';
 import GuestRoute from './GuestRoute';
-import DashboardRoute from './DashboardRoute';
 
 const routes: RouteObject[] = [
   {
@@ -41,10 +40,6 @@ const routes: RouteObject[] = [
   {
     path: 'login',
     element: <GuestRoute component={Login} />,
-  },
-  {
-    path: 'signup',
-    element: <GuestRoute component={Signup} />,
   },
 ];
 

@@ -29,9 +29,9 @@ const ContactTable: React.FC = () => {
                 <tbody className="bg-white divide-y divide-gray-200">
                     {contactData.map((contact, index) => (
                         <tr key={contact.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{contact.name}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{contact.email}</td>
-                            <td className="px-6 py-4 text-sm text-gray-900">{contact.message}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 w-[25%]">{contact.name}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 w-[25%]">{contact.email}</td>
+                            <td className="px-6 py-4 text-sm text-gray-900 break-words w-[50%]">{contact.message}</td>
                         </tr>
                     ))}
                 </tbody>
