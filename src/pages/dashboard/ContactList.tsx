@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/common/Loading';
 import Pagination from '../../components/common/Pagination';
 import ContactTable from '../../components/contacts/ContactTable';
 import { SearchForm } from '../../components/contacts/SearchForm';
@@ -84,9 +85,7 @@ const ContactList: React.FC = () => {
               </button>
             </div>
           ) : isLoading ? (
-            <div className="flex items-center justify-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-            </div>
+            <Loading />
           ) : contactData.length === 0 ? (
             <div className="text-center py-8">
               <p className="text-gray-500">No contact messages found</p>

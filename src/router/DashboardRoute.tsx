@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
-import Loading from '../components/Loading';
+import Loading from '../components/common/Loading';
 import { useAuth } from '../hooks/useAuth';
 import { RouteProps } from '../types/route.type';
 
