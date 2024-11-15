@@ -40,7 +40,7 @@ const experiences: Experience[] = [
 const Experience = () => {
   return (
     <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
-      <h2 className="text-2xl font-bold mb-6">Professional Experience</h2>
+      <h2 className="text-2xl font-bold mb-6  text-gray-900">Professional Experience</h2>
       <div className="space-y-6">
         {experiences.map((exp, index) => (
           <motion.div
@@ -50,7 +50,7 @@ const Experience = () => {
             transition={{ delay: index * 0.2 }}
             className="border-l-4 border-blue-500 pl-4"
           >
-            <h3 className="font-semibold text-lg">{exp.position}</h3>
+            <h3 className="font-semibold text-lg text-gray-900">{exp.position}</h3>
             <p className="text-blue-600">{exp.company}</p>
             <p className="text-gray-500 text-sm">{exp.period}</p>
             <p className="text-gray-600 mt-2">{exp.description}</p>

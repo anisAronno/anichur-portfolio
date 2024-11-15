@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
         <input
           type="text"
           required
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white  text-gray-900"
           value={formData.name}
           onChange={(e) => updateFormData({ name: e.target.value })}
           placeholder="Your name"
@@ -37,7 +37,7 @@ const ContactForm: React.FC = () => {
         <input
           type="email"
           required
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white  text-gray-900"
           value={formData.email}
           onChange={(e) => updateFormData({ email: e.target.value })}
           placeholder="your@email.com"
@@ -50,7 +50,7 @@ const ContactForm: React.FC = () => {
         <textarea
           rows={4}
           required
-          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white  text-gray-900"
           value={formData.message}
           onChange={(e) => updateFormData({ message: e.target.value })}
           placeholder="Your message..."

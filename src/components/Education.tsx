@@ -21,7 +21,7 @@ const education: EducationType[] = [
 const Education: React.FC = () => {
     return (
         <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold mb-6">Education</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">Education</h2>
             <div className="space-y-8">
                 {education.map((edu, index) => (
                     <motion.div
