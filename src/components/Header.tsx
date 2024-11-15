@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const { currentUser } = useAuth();
 
   const isActive = (path: string) => {
-    return location.pathname === path ? 'text-blue-400' : 'hover:text-gray-300';
+    return location.pathname === path ? 'text-blue-400' : 'hover:text-gray-300 text-gray-50';
   };
 
   const toggleMenu = () => {
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`md:flex md:space-x-6 ${
+            className={`md:flex md:space-x-6 text-gray-50 ${
               isMenuOpen
                 ? 'absolute top-full left-0 right-0 flex flex-col bg-gray-800 p-4 space-y-4'
                 : 'hidden'
