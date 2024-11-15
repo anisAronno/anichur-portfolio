@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
-import Dashboard from '../pages/Dashboard';
+import Dashboard from '../pages/dashboard/Dashboard';
 import Error from '../pages/Error';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
