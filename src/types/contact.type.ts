@@ -33,3 +33,8 @@ export interface SearchFilters {
 export interface ContactTableProps {
   contacts: Contact[];
 }
+
+export interface SearchFormProps {
+  defaultValues: SearchFilters;
+  onSearch: (filters: SearchFilters) => void;
+}

@@ -1,10 +1,5 @@
 import React from 'react';
-import { SearchFilters } from '../../types/contact.type';
-
-interface SearchFormProps {
-  defaultValues: SearchFilters;
-  onSearch: (filters: SearchFilters) => void;
-}
+import { SearchFilters, SearchFormProps } from '../../types/contact.type';
 
 export const SearchForm: React.FC<SearchFormProps> = ({
   defaultValues,

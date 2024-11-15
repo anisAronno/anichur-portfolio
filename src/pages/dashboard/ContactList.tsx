@@ -15,14 +15,13 @@ const ContactList: React.FC = () => {
     totalPages,
     currentPage,
     handlePageChange,
-    searchFilters,
     handleSearch,
     getContactData,
+    searchFilters,
   } = useContactForm();
 
   useEffect(() => {
     getContactData();
-    getSearchParams();
   }, []);
 
   // Function to update URL and trigger search
@@ -41,14 +40,12 @@ const ContactList: React.FC = () => {
     });
   };
 
-  const getSearchParams = () => {
-    const searchParams = new URLSearchParams(location.search);
-    const searchTerm = searchParams.get('search') || '';
-    const searchBy =
-      (searchParams.get('searchBy') as 'name' | 'email' | 'message') || 'name';
-    const page = parseInt(searchParams.get('page') || '1');
-    handleSearchSubmit({ searchTerm, searchBy });
-    return page;
+  // Function to clear search filters
+  const clearSearch = () => {
+    handleSearch({ searchTerm: '', searchBy: 'name' });
+    navigate({
+      search: `?page=1`,
+    });
   };
 
   return (
@@ -91,9 +88,7 @@ const ContactList: React.FC = () => {
               <p className="text-gray-500">No contact messages found</p>
               {searchFilters.searchTerm && (
                 <button
-                  onClick={() =>
-                    handleSearchSubmit({ searchTerm: '', searchBy: 'name' })
-                  }
+                  onClick={clearSearch}
                   className="mt-2 text-sm text-blue-600 hover:text-blue-800"
                 >
                   Clear Search
