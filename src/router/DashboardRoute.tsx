@@ -1,11 +1,16 @@
 import { FC } from 'react';
 import { Navigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
+import Loading from '../components/Loading';
 import { useAuth } from '../hooks/useAuth';
 import { RouteProps } from '../types/route.type';
 
 const DashboardRoute: FC<RouteProps> = ({ component: Component }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, loading } = useAuth(); // Add loading state
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!currentUser) {
     return <Navigate to="/login" replace />;
@@ -17,4 +22,5 @@ const DashboardRoute: FC<RouteProps> = ({ component: Component }) => {
     </DashboardLayout>
   );
 };
+
 export default DashboardRoute;
