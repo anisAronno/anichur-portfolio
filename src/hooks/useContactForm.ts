@@ -18,9 +18,9 @@ import {
 } from '../types/contact.type';
 import { db } from '../utils/firebase';
 
-const ITEMS_PER_PAGE = 10;
-
 export const useContactForm = () => {
+  const ITEMS_PER_PAGE = 10;
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [state, setState] = useState<ContactState>({
     formData: {
@@ -194,5 +194,6 @@ export const useContactForm = () => {
     handlePageChange,
     searchFilters,
     handleSearch,
+    ITEMS_PER_PAGE,
   };
 };

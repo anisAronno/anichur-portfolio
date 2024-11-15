@@ -18,6 +18,7 @@ const ContactList: React.FC = () => {
     handleSearch,
     getContactData,
     searchFilters,
+    ITEMS_PER_PAGE,
   } = useContactForm();
 
   useEffect(() => {
@@ -116,9 +117,13 @@ const ContactList: React.FC = () => {
           <div className="border-t border-gray-200 px-6 py-4">
             <div className="flex justify-between text-sm text-gray-600">
               <span>
-                Showing {(currentPage - 1) * 10 + 1} to{' '}
-                {Math.min(currentPage * 10, contactData.length)} of{' '}
-                {totalPages * 10} results
+                Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1} to{' '}
+                {Math.min(
+                  currentPage * ITEMS_PER_PAGE,
+                  (currentPage - 1) * ITEMS_PER_PAGE + contactData.length
+                )}{' '}
+                of {(totalPages - 1) * ITEMS_PER_PAGE + contactData.length}{' '}
+                results
               </span>
               <span>
                 Page {currentPage} of {totalPages}
