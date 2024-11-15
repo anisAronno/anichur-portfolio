@@ -21,6 +21,7 @@ const ContactList: React.FC = () => {
 
   useEffect(() => {
     getContactData();
+    getSearchParams();
   }, []);
 
   // Function to update URL and trigger search
@@ -37,6 +38,16 @@ const ContactList: React.FC = () => {
     navigate({
       search: `?page=${page}&search=${encodeURIComponent(searchFilters.searchTerm)}&searchBy=${searchFilters.searchBy}`,
     });
+  };
+
+  const getSearchParams = () => {
+    const searchParams = new URLSearchParams(location.search);
+    const searchTerm = searchParams.get('search') || '';
+    const searchBy =
+      (searchParams.get('searchBy') as 'name' | 'email' | 'message') || 'name';
+    const page = parseInt(searchParams.get('page') || '1');
+    handleSearchSubmit({ searchTerm, searchBy });
+    return page;
   };
 
   return (
