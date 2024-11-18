@@ -18,19 +18,19 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow"
+      className="flex flex-wrap gap-4 p-4 bg-white text-gray-900 rounded-lg shadow"
     >
       <input
         type="text"
         name="searchTerm"
         defaultValue={defaultValues.searchTerm}
         placeholder="Search contacts..."
-        className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 min-w-full"
+        className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 min-w-full bg-white text-gray-900"
       />
       <select
         name="searchBy"
         defaultValue={defaultValues.searchBy}
-        className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+        className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-900"
       >
         <option value="name">Name</option>
         <option value="email">Email</option>
