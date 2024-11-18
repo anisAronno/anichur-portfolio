@@ -4,6 +4,7 @@ import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Profile from '../components/Profile';
 import SkillWithMotion from '../components/SkilslWithMition';
+import UserCreationListener from '../components/UserCreationListener';
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
         >
           {/* About Section */}
           <AboutMe />
+          <UserCreationListener />
           {/* Experience Section */}
           <Experience />
           {/* Skills Section */}
