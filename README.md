@@ -22,7 +22,7 @@ Welcome to my personal portfolio website built with React! This project showcase
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/anichur-portfolio.git
+git clone https://github.com/anisAronno/anichur-portfolio.git
 cd anichur-portfolio
 ```
 
