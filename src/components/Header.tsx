@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                   className={isActive('/dashboard')}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Dashboard
+                  Admin Panel
                 </Link>
               ) : (
                 <Link
