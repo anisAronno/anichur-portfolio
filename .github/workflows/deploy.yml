@@ -14,45 +14,48 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      # Step 2: Set up PHP and Composer for Laravel
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          node-version: '18'
+          php-version: '8.2'  # Adjust to your Laravel project's PHP version
+          extensions: mbstring, intl, zip, sqlite3
+          coverage: none
 
-      # Step 3: Create .env file from secrets
+      # Step 3: Install Composer dependencies
+      - name: Install Composer Dependencies
+        run: |
+          composer install
+
+      # Step 4: Create .env file
       - name: Create .env file
         env:
-          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
-          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
-          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
-          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
-          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
-          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          # Add all your Laravel environment variables here
+          APP_KEY: ${{ secrets.APP_KEY }}
+          # Add other necessary secrets
         run: |
-          # Debug: Check if secrets are being set
-          echo "Creating .env file"
-          cp .env-example .env
+          # Copy .env.example to .env
+          cp .env.example .env
           
-          # Use printf to ensure proper formatting and escape special characters
-          printf "VITE_FIREBASE_API_KEY=%s\n" "$VITE_FIREBASE_API_KEY" >> .env
-          printf "VITE_FIREBASE_AUTH_DOMAIN=%s\n" "$VITE_FIREBASE_AUTH_DOMAIN" >> .env
-          printf "VITE_FIREBASE_PROJECT_ID=%s\n" "$VITE_FIREBASE_PROJECT_ID" >> .env
-          printf "VITE_FIREBASE_STORAGE_BUCKET=%s\n" "$VITE_FIREBASE_STORAGE_BUCKET" >> .env
-          printf "VITE_FIREBASE_MESSAGING_SENDER_ID=%s\n" "$VITE_FIREBASE_MESSAGING_SENDER_ID" >> .env
-          printf "VITE_FIREBASE_APP_ID=%s\n" "$VITE_FIREBASE_APP_ID" >> .env
-          
-          # Debug: Show the contents of the .env file
-          echo "Contents of .env file:"
-          cat .env
+          # Set app key
+          php artisan key:generate
 
-      # Step 4: Install dependencies and build the project
-      - name: Build React App
+          # Add other environment configurations
+          echo "APP_KEY=$APP_KEY" >> .env
+          # Add other environment variable configurations
+
+      # Step 5: Prepare Laravel for deployment
+      - name: Prepare Laravel for Deployment
         run: |
-          npm install
-          npm run build
+          # Clear config and cache
+          php artisan config:clear
+          php artisan cache:clear
 
-      # Step 5: Deploy to server using SSH
+          # Create deployment artifact
+          mkdir -p deploy
+          rsync -av --exclude='.git' --exclude='node_modules' --exclude='deploy' ./ deploy/
+
+      # Step 6: Deploy to server using SSH
       - name: Deploy to Server
         env:
           HOST: ${{ secrets.HOST }}
@@ -60,17 +63,50 @@ jobs:
           DEPLOY_PATH: /var/www/html/oc.anichur.com
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          # Install SSH key
+          # Setup SSH
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
-          # Remove existing files
-          ssh -i ~/.ssh/id_rsa $USER@$HOST "rm -rf $DEPLOY_PATH/*"
+          # Prepare server-side directory
+          ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
+            # Create deploy directory if not exists
+            mkdir -p $DEPLOY_PATH
+            
+            # Set correct permissions
+            sudo chown -R $USER:www-data $DEPLOY_PATH
+            sudo chmod -R 755 $DEPLOY_PATH
+          EOF
 
-          # Deploy new files using rsync
+          # Deploy files with proper permissions
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/id_rsa" \
-            ./dist/ \
+            --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
+            ./deploy/ \
             $USER@$HOST:$DEPLOY_PATH/
+
+          # Post-deployment server commands
+          ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
+            # Move to deploy directory
+            cd $DEPLOY_PATH
+
+            # Set correct Laravel permissions
+            sudo chown -R $USER:www-data storage
+            sudo chown -R $USER:www-data bootstrap/cache
+            sudo chmod -R 775 storage
+            sudo chmod -R 775 bootstrap/cache
+
+            # Install Composer dependencies on server
+            composer install --no-dev --no-interaction
+
+            # Run Laravel specific commands
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+
+            # Optional: Restart web server if needed
+            sudo systemctl restart nginx
+            # Or for Apache: sudo systemctl restart apache2
+          EOF
