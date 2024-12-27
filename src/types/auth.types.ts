@@ -1,11 +1,10 @@
-import { Auth } from 'firebase/auth';
 import { ReactNode } from 'react';
 
 export interface User {
-  uid: string;
-  email: string | null;
-  displayName: string | null;
-  photoURL?: string | null;
+  id: string;
+  name: string;
+  email: string;
+  email_verified_at?: string | null;
 }
 
 export interface AuthContextType {
@@ -13,7 +12,7 @@ export interface AuthContextType {
   loading: boolean;
   error: Error | null;
   login: (email: string, password: string) => Promise<void>;
-  signup: (email: string, password: string) => Promise<void>;
+  signup: (name: string, email: string, password: string, password_confirmation: string) => Promise<void>;
   logout: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
   updateProfile: (data: Partial<User>) => Promise<void>;
@@ -21,5 +20,4 @@ export interface AuthContextType {
 
 export interface AuthProviderProps {
   children: ReactNode;
-  auth: Auth;
 }
