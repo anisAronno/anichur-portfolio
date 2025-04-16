@@ -3,9 +3,23 @@ import type { Experience } from '../types';
 
 const experiences: Experience[] = [
   {
+    company: 'Brain Station 23',
+    position: 'Senior Software Engineer',
+    period: 'March 2025 - Present',
+    description:
+      'Contributing to enterprise application development using Laravel and Vue JS. Working in an agile team environment, participating in code reviews, and learning best practices for frontend development.',
+    projects: [
+      {
+        name: 'MyGP App Backend Services',
+        details:
+          'Building scalable microservices and REST APIs to support the MyGP application infrastructure.',
+      },
+    ],
+  },
+  {
     company: 'weDevs',
     position: 'Software Engineer',
-    period: 'December 2021 - Present',
+    period: 'December 2021 - February 2025',
     description:
       'Lead development of WordPress product management and licensing solutions, design microservices architecture using Docker and cloud technologies, implement secure payment processing and analytics systems.',
     projects: [
@@ -40,7 +54,9 @@ const experiences: Experience[] = [
 const Experience = () => {
   return (
     <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
-      <h2 className="text-2xl font-bold mb-6  text-gray-900">Professional Experience</h2>
+      <h2 className="text-2xl font-bold mb-6  text-gray-900">
+        Professional Experience
+      </h2>
       <div className="space-y-6">
         {experiences.map((exp, index) => (
           <motion.div
@@ -50,7 +66,9 @@ const Experience = () => {
             transition={{ delay: index * 0.2 }}
             className="border-l-4 border-blue-500 pl-4"
           >
-            <h3 className="font-semibold text-lg text-gray-900">{exp.position}</h3>
+            <h3 className="font-semibold text-lg text-gray-900">
+              {exp.position}
+            </h3>
             <p className="text-blue-600">{exp.company}</p>
             <p className="text-gray-500 text-sm">{exp.period}</p>
             <p className="text-gray-600 mt-2">{exp.description}</p>

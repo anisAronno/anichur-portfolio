@@ -3,6 +3,7 @@ import AboutMe from '../components/AboutMe';
 import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Profile from '../components/Profile';
+import Skills from '../components/Skills';
 import SkillWithMotion from '../components/SkilslWithMition';
 
 const Home = () => {
@@ -28,6 +29,8 @@ const Home = () => {
           <AboutMe />
           {/* Experience Section */}
           <Experience />
+          {/* Skills Section with Animation */}
+          <Skills />
           {/* Skills Section */}
           <SkillWithMotion />
           {/* Education Section */}

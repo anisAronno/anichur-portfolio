@@ -73,15 +73,6 @@ const Header: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/about"
-                className={isActive('/about')}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/projects"
                 className={isActive('/projects')}
                 onClick={() => setIsMenuOpen(false)}

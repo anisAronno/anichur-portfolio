@@ -18,14 +18,16 @@ export const useSkills = () => {
     database: [
       { id: 9, name: 'MySQL', level: '85%' },
       { id: 10, name: 'PostgreSQL', level: '80%' },
-      { id: 11, name: 'MongoDB', level: '80%' },
       { id: 12, name: 'SQLite', level: '85%' },
       { id: 13, name: 'Redis', level: '90%' },
+      { id: 11, name: 'MongoDB', level: '80%' },
+      { id: 25, name: 'DynamoDB', level: '80%' },
       { id: 14, name: 'Google Datastore', level: '75%' },
     ],
     cloud: [
       { id: 20, name: 'AWS', level: '60%' },
       { id: 21, name: 'Google Cloud', level: '70%' },
+      { id: 24, name: 'Digital Ocean', level: '80%' },
     ],
     tools: [
       { id: 15, name: 'Node JS', level: '75%' },

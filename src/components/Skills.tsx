@@ -25,7 +25,7 @@ const Skills: React.FC = () => {
   return (
     <div className="skills-container bg-white rounded-xl shadow-lg p-6 mb-8">
       <h3 className="text-2xl font-bold text-gray-800 mb-6">
-        Technical Skills
+      Core Technical Competencies
       </h3>
       {skillCategories.map((category) => (
         <CategorySection key={category} title={category}>
