@@ -8,7 +8,7 @@ import SkillWithMotion from '../components/SkilslWithMition';
 
 const Home = () => {
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
+    <div className="bg-gray-100 min-h-screen p-3 md:p-6">
       <div className="w-full mx-auto grid md:grid-cols-7 gap-8">
         {/* Left Column - Personal Info */}
         <motion.div
