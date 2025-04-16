@@ -44,7 +44,7 @@ const Profile = () => {
         </div>
         <div className="space-y-0 mb-6 w-full flex flex-col items-center">
           <h1 className="text-2xl font-bold text-gray-800">Anichur Rahaman</h1>
-          <p className="text-blue-600 font-medium">Software Engineer</p>
+          <p className="text-blue-600 font-medium">Senior Software Engineer</p>
 
           <div className="!my-2">
             {contactInfo.map((item, index) => (
