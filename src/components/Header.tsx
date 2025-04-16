@@ -18,10 +18,10 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-gray-800 text-white z-50">
-      <nav className="min-w-full mx-auto px-6 py-4">
+      <nav className="min-w-full mx-auto px-6 py-0">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-xl font-bold">
-            <img src={logo} alt="Logo" className="h-8 md:h-10 w-auto" />
+            <img src={logo} alt="Logo" className="h-16 md:h-20 w-auto" />
           </Link>
 
           {/* Hamburger Menu Button */}
